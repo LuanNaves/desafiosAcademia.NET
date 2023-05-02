@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel.Design;
 
 namespace DesafioJogoDaVelha {
@@ -137,6 +138,45 @@ namespace DesafioJogoDaVelha {
                 printWinner(" ");
             }
         }
+        public static int[] minimax(string[,] board, string computerSign) {
+            int score;
+            int bestScore = int.MinValue;
+            int[] bestMove = new int[] { -1, -1, -1};
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i, j] == " ") {
+                        board[i, j] = computerSign;
+
+                        if(checkWinner(board) == computerSign) {
+                            score = 1;
+                        }
+                        else if (checkWinner(board) == PLAYER1 || checkFreeSpaces(board) == 0) {
+                            score = 0;
+                        }
+                        else {
+                            int[] move = minimax(board, computerSign);
+                            score = -move[2];      
+                        }
+
+                        board[i, j] = " ";
+
+                        if (score > bestScore) {
+                            bestScore = score;
+                            bestMove[0] = i;
+                            bestMove[1] = j;
+                            bestMove[2] = score;
+                        }
+                    }
+                }
+            }
+            return bestMove;
+        }
+
+        public static void computerHardMove(string[,] board, string computerSign) {
+            int[] move = minimax(board, PLAYER2);
+            board[move[0], move[1]] = computerSign;
+        }
+
         public static string checkWinner(string[,] board) { // verifica qualquer possibilidade de vitoria
             // verificando as linhas
             for (int i = 0; i < board.GetLength(0); i++) {
@@ -219,32 +259,65 @@ namespace DesafioJogoDaVelha {
                 else if (modoDeJogo == 2) {
                     Console.WriteLine(titulo);
                     dificuldadePvE = gameDifficult();
-                    while (vencedor == " " && checkFreeSpaces(board) != 0) {
-                        Console.WriteLine(titulo);
+                    Console.Clear();
+                    if (dificuldadePvE == 1) {
+                        while (vencedor == " " && checkFreeSpaces(board) != 0) {
+                            Console.WriteLine(titulo);
 
-                        printBoard(board);
+                            printBoard(board);
 
-                        Console.WriteLine("Turno do jogador 1");
-                        playerMove(board, PLAYER1);
-                        vencedor = checkWinner(board);
-                        if (vencedor != " " || checkFreeSpaces(board) == 0) {
-                            break;
+                            Console.WriteLine("Turno do jogador 1");
+                            playerMove(board, PLAYER1);
+                            vencedor = checkWinner(board);
+                            if (vencedor != " " || checkFreeSpaces(board) == 0) {
+                                break;
+                            }
+                            Console.Clear();
+
+                            Console.WriteLine(titulo);
+                            printBoard(board);
+
+
+                            Console.WriteLine("Turno do computador");
+                            Thread.Sleep(1000);
+                            computerEasyMove(board, PLAYER2);
+
+                            vencedor = checkWinner(board);
+                            if (vencedor != " " || checkFreeSpaces(board) == 0) {
+                                break;
+                            }
+                            Console.Clear();
                         }
-                        Console.Clear();
+                        
+                    }
+                    else if (dificuldadePvE == 2) {
+                        while (vencedor == " " && checkFreeSpaces(board) != 0) {
+                            Console.WriteLine(titulo);
+                            printBoard(board);
 
-                        Console.WriteLine(titulo);
-                        printBoard(board);
+                            Console.WriteLine("Turno do computador");
+                            Thread.Sleep(1000);
+                            computerHardMove(board, PLAYER2);
+
+                            vencedor = checkWinner(board);
+                            if (vencedor != " " || checkFreeSpaces(board) == 0) {
+                                break;
+                            }
+                            Console.Clear();
 
 
-                        Console.WriteLine("Turno do computador");
-                        Thread.Sleep(1000);
-                        computerEasyMove(board, PLAYER2);
+                            Console.WriteLine(titulo);
+                            printBoard(board);
 
-                        vencedor = checkWinner(board);
-                        if (vencedor != " " || checkFreeSpaces(board) == 0) {
-                            break;
+                            Console.WriteLine("Turno do jogador 1");
+                            playerMove(board, PLAYER1);
+                            vencedor = checkWinner(board);
+                            if (vencedor != " " || checkFreeSpaces(board) == 0) {
+                                break;
+                            }
+                            Console.Clear();
+                            
                         }
-                        Console.Clear();
                     }
                 }
 

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Codiguinhos - Luan\\Academia .NET\\DesafioJogoDaVelha\\DesafioJogoDaVelha\\DesafioJogoDaVelha.csproj",
+      "projectUniqueName": "D:\\Codiguinhos - Luan\\Academia .NET\\Desafios\\DesafioJogoDaVelha\\DesafioJogoDaVelha\\DesafioJogoDaVelha.csproj",
       "projectName": "DesafioJogoDaVelha",
-      "projectPath": "D:\\Codiguinhos - Luan\\Academia .NET\\DesafioJogoDaVelha\\DesafioJogoDaVelha\\DesafioJogoDaVelha.csproj",
+      "projectPath": "D:\\Codiguinhos - Luan\\Academia .NET\\Desafios\\DesafioJogoDaVelha\\DesafioJogoDaVelha\\DesafioJogoDaVelha.csproj",
       "packagesPath": "C:\\Users\\Luan\\.nuget\\packages\\",
-      "outputPath": "D:\\Codiguinhos - Luan\\Academia .NET\\DesafioJogoDaVelha\\DesafioJogoDaVelha\\obj\\",
+      "outputPath": "D:\\Codiguinhos - Luan\\Academia .NET\\Desafios\\DesafioJogoDaVelha\\DesafioJogoDaVelha\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
