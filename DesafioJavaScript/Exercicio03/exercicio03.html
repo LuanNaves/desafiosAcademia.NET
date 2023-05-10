@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio3</title>
+</head>
+<body>
+    <form>
+        <select id="colors" name="colors" onchange="changeBgColor()">
+            <option value="">Selecione a cor</option>
+            <option value="red">Vermelho</option>
+            <option value="pink">Rosa</option>
+            <option value="purple">Roxo</option>
+            <option value="blue">Azul</option>
+        </select>
+    </form>
+
+    <script>
+        function changeBgColor() {
+            var colorSelect = document.getElementById("colors");
+            var selectedColor = colorSelect.options[colorSelect.selectedIndex].value;
+            document.body.style.backgroundColor = selectedColor;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+    </style>
+    <title>Exercicio 5</title>
+</head>
+<body>
+    <form class="container">
+        <label for="checkbox">Selecione dois ou mais carros: <br>
+            <input type="checkbox" name="cars" value="1" onchange="checkSelection()">Omega
+            <input type="checkbox" name="cars" value="2" onchange="checkSelection()">Opala
+            <input type="checkbox" name="cars" value="3" onchange="checkSelection()">Chevette
+            <input type="checkbox" name="cars" value="4" onchange="checkSelection()">Corsa
+            <input type="checkbox" name="cars" value="5" onchange="checkSelection()">Astra
+            <input type="checkbox" name="cars" value="6" onchange="checkSelection()">Vectra
+        </label>
+
+        <button id="submitButton" type="submit" disabled>Enviar</button>
+
+        <script>
+            function checkSelection() {
+                var checkboxes = document.querySelectorAll('input[name="cars"]');
+                var submitButton = document.getElementById("submitButton");
+                var numOptSelected = Array.from(checkboxes).filter(cb => cb.checked).length;
+
+                if (numOptSelected >= 2) {
+                    submitButton.disabled = false;
+                }
+                else {
+                    submitButton.disabled = true;
+                }
+            }    
+        </script>
+    </form>
+</body>
+</html>

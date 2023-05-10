@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #loginIn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #submitBtn {
+            margin-top: 1em;
+        }
+    </style>
+    <title>Exercicio 9</title>
+</head>
+<body>
+    <form id="loginIn">
+        <label for="login">Login: </label>
+        <input type="login" name="data" id="login">
+        <label for="password">Senha: </label>
+        <input type="password" name="data" id="password">
+        <label for="confirmPassword">Confirmar senha: </label>
+        <input type="password" name="data" id="confirmPassword">
+
+        <button id="submitBtn" type="submit" disabled>Entrar</button>
+
+        <script>
+            var loginInput = document.getElementById("login");
+            var passwordInput = document.getElementById("password");
+            var confirmPasswordInput = document.getElementById("confirmPassword");
+
+            loginInput.addEventListener("input", validateData);
+            password.addEventListener("input", validateData);
+            confirmPasswordInput.addEventListener("input", validateData);
+
+            function validateData() {
+                if(passwordInput.value === confirmPasswordInput.value && passwordInput.value.length >= 6 && passwordInput.value.length <= 10 && loginInput.value.trim() !== '') {
+                    submitBtn.disabled = false;
+                }
+                else {
+                    submitBtn.disabled = true;
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>

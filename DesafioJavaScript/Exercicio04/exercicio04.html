@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+    Qui est recusandae tenetur debitis harum voluptatem modi. 
+    Reprehenderit suscipit consectetur velit, 
+    repellat quo saepe laboriosam accusantium numquam neque vitae optio! Minima?</p>
+    <button id="hide" type="button" onclick="hideText()">Esconder texto</button>
+
+    <script>
+        var text = document.getElementsByTagName("p")[0];
+
+        function hideText() {
+            (text.style.display == "none")?text.style.display = "block":text.style.display = "none";
+        }
+    </script>
+</body>
+</html>

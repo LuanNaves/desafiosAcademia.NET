@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Qui est recusandae tenetur debitis harum voluptatem modi. 
+        Reprehenderit suscipit consectetur velit, 
+        repellat quo saepe laboriosam accusantium numquam neque vitae optio! Minima?</p>
+    <button id="blackFont" type="button">Fonte Preta</button>
+    <button id="whiteFont" type="button">Fonte Branca</button>
+    <button id="blackBg" type="button">Fundo Preto</button>
+    <button id="whiteBg" type="button">Fundo Branco</button>
+
+    <script>
+            var blackFontBtn = document.getElementById("blackFont");
+            var whiteFontBtn = document.getElementById("whiteFont");
+            var blackBgBtn = document.getElementById("blackBg");
+            var whiteBgBtn = document.getElementById("whiteBg"); 
+
+            blackFontBtn.addEventListener("click", function() {
+                changeFontColor("black");
+            });
+            whiteFontBtn.addEventListener("click", function() {
+                changeFontColor("white");
+            });
+            blackBgBtn.addEventListener("click", function() {
+                changeBgColor("black");
+            });
+            whiteBgBtn.addEventListener("click", function() {
+                changeBgColor("white");
+            });
+
+            function changeBgColor(color) {
+                document.body.style.backgroundColor = color
+            }
+            function changeFontColor(color) {
+                document.body.style.color = color
+            }
+    </script>
+</body>
+</html>

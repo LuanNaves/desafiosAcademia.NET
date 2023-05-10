@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Exercicio 10</title>
+</head>
+<body>
+    <form id="register">
+        <fieldset class="container">
+            <legend>Informações Pessoais</legend>
+            <label for="name">Nome: </label>
+            <input type="text" name="data" id="name" required placeholder="Insira seu nome">
+            <div>
+                <label for="naturalPerson"><input type="radio" name="data" id="naturalPerson" value="person" checked> Pessoa Física</label>
+                <label for="legalEntity"><input type="radio" name="data" id="legalEntity" value="entity"> Pessoa Jurídica</label>
+            </div>
+            <label for="cpf">CPF: </label>
+            <input type="text" name="data" id="cpf" placeholder="000.000.000-00">
+            <label for="cnpj">CNPJ: </label>
+            <input type="text" name="data" id="cnpj" placeholder="00.000.000/0000-00" disabled>
+            <label for="birthDate"> Data de Nascimento: </label>
+            <input type="date" name="data" id="birthDate" required>
+        </fieldset>
+        <fieldset class="container">
+            <legend>Endereço</legend>
+            <label for="adress">Endereço: </label>
+            <input type="text" name="data" id="adress" required placeholder="Insira seu endereço">
+            <label for="cep">CEP: </label>
+            <input type="text" name="data" id="cep" required placeholder="00000000" oninput="this.value = this.value.replace(/[^0-9]/g, '')"> <!-- /[^0-9]/g, '' procura por todos os caracteres que não são dígitos de 0 a 9 e substituí-los por uma string vazia-->
+        </fieldset>
+        <fieldset class="container">
+            <legend>Contato</legend>
+            <label for="phone">Telefone: </label>
+            <input type="tel" name="data" id="phone" required placeholder="(00) 00000-0000">
+            <label for="email">Email: </label>
+            <input type="email" name="data" id="email" placeholder="Insira seu email">
+        </fieldset>
+
+        <button id="submitBtn" type="submit">Enviar</button>
+
+        <script>
+            var naturalPerson = document.getElementById("naturalPerson");
+            var legalEntity = document.getElementById("legalEntity");
+            var cpfInput = document.getElementById("cpf");
+            var cnpjInput = document.getElementById("cnpj");
+            var birthDateInput = document.getElementById("birthDate");
+
+            naturalPerson.addEventListener("change", function() {
+                cpfInput.disabled = false;
+                cnpjInput.disabled = true;
+                birthDateInput.disabled = false;
+            });
+            legalEntity.addEventListener("change", function() {
+                cpfInput.disabled = true;
+                cnpjInput.disabled = false;
+                birthDateInput.disabled = true;
+            });
+        </script>
+    </form>
+</body>
+</html>

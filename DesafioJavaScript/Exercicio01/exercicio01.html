@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .form {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    }
+    button {
+        margin: 10px;
+    }
+    </style>
+    <title>Exercicio1</title>
+</head>
+<body>
+    <form class="form">
+        <button id="red" type="button">Vermelho</button>
+        <button id="green" type="button">Verde</button>
+        <button id="blue" type="button">Azul</button>
+        <button id="yellow" type="button">Amarelo</button>
+
+        <script>
+
+            var redButton = document.getElementById("red");
+            var greenButton = document.getElementById("green");
+            var blueButton = document.getElementById("blue");
+            var yellowButton = document.getElementById("yellow");
+
+            redButton.addEventListener("click", function() {
+                changeBgColor("red");
+            });
+            greenButton.addEventListener("click", function() {
+                changeBgColor("green");
+            });
+            blueButton.addEventListener("click", function() {
+                changeBgColor("blue");
+            });
+            yellowButton.addEventListener("click", function() {
+                changeBgColor("yellow");
+            });
+
+            function changeBgColor(color) {
+                document.body.style.backgroundColor = color;
+            }
+        </script>
+
+
+    </form>
+</body>
+</html>

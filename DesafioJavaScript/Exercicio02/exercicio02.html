@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+        display: flex;
+        justify-content: center ;
+        align-items: center;
+        }
+        a {
+            padding: 10px;
+            background-color: white;
+        }
+    </style>
+    <title>Exercicio2</title>
+</head>
+<body>
+    <div class="container">
+        <a id="red" href="" onmouseover="changeBgColor('red')">Vermelho</a>
+        <a id="pink" href="" onmouseover="changeBgColor('pink')">Rosa</a>
+        <a id="purple" href="" onmouseover="changeBgColor('purple')">Roxo</a>
+        <a id="blue" href="" onmouseover="changeBgColor('blue')">Azul</a>
+    </div>  
+
+    <script>
+        function changeBgColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
